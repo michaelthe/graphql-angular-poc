@@ -1,0 +1,26 @@
+{
+  "name": "apollo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "concurrently npm:build:watch npm:start:watch",
+    "start": "node dist/index.js",
+    "start:watch": "nodemon --config ./nodemon.json dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.11.0",
+    "graphql": "^14.6.0",
+    "mysql2": "^2.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2",
+    "tslint": "^6.1.0",
+    "typescript": "^3.8.3"
+  }
+}

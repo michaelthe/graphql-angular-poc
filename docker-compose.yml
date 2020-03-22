@@ -1,0 +1,33 @@
+version: '3.5'
+
+services:
+  apollo:
+    build: ./apollo
+    hostname: apollo
+    ports:
+      - 4000:4000
+    depends_on:
+      - database
+    environment:
+      DATABASE: database
+
+  database:
+    image: mysql:8
+    hostname: database
+    ports:
+    - 3306:3306
+    volumes:
+    - /var/lib/mysql
+    environment:
+      MYSQL_DATABASE: graphql
+      MYSQL_ROOT_PASSWORD: password
+
+  admin:
+    image: phpmyadmin/phpmyadmin:5
+    ports:
+    - 8080:80
+    environment:
+      PMA_HOST: database
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: password
