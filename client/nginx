@@ -11,8 +11,4 @@ server {
     location / {
         try_files $uri $uri/ /index.html;
     }
-
-    location /apollo {
-        proxy_pass http://apollo;
-    }
 }
