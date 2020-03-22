@@ -11,6 +11,14 @@ services:
     environment:
       DATABASE: database
 
+  client:
+    build: ./client
+    hostname: client
+    ports:
+      - 80:80
+    depends_on:
+      - apollo
+
   database:
     image: mysql:8
     hostname: database
